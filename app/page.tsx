@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import ContactForm from "@/components/ContactForm";
 
-const integrations = [
+const replaces = [
   {
-    name: "HubSpot",
-    category: "CRM",
-    description: "Manage leads, pipeline, and customer relationships at scale.",
+    name: "Sales & CRM",
+    category: "Sales team",
+    replacesLabel: "Replaces HubSpot, Salesforce",
+    description: "AI-scored leads, pipeline automation, and proposal generation — native, not bolted on.",
     color: "#ff7a59",
     bg: "#1a0f0a",
     border: "#3d1a0f",
@@ -17,9 +18,10 @@ const integrations = [
     ),
   },
   {
-    name: "Quoter",
-    category: "CPQ",
-    description: "Build and send accurate quotes with automated pricing rules.",
+    name: "Quoting & CPQ",
+    category: "Sales team",
+    replacesLabel: "Replaces Quoter, PandaDoc",
+    description: "Accurate quotes generated in seconds with AI pricing rules and bundling logic.",
     color: "#3b82f6",
     bg: "#0a0e1a",
     border: "#1e2d4f",
@@ -32,9 +34,10 @@ const integrations = [
     ),
   },
   {
-    name: "HaloPSA",
-    category: "PSA",
-    description: "Track projects, tickets, and time with full PSA capabilities.",
+    name: "Service & PSA",
+    category: "Service team",
+    replacesLabel: "Replaces HaloPSA, ConnectWise",
+    description: "Tickets, projects, and time tracking with AI triage that routes work before a human touches it.",
     color: "#a855f7",
     bg: "#120a1a",
     border: "#2d1a4f",
@@ -46,9 +49,25 @@ const integrations = [
     ),
   },
   {
-    name: "Linnworks",
-    category: "Warehouse",
-    description: "Centralise inventory, orders, and fulfilment across channels.",
+    name: "Procurement",
+    category: "Procurement team",
+    replacesLabel: "Replaces manual POs & spreadsheets",
+    description: "AI-driven supplier reordering, purchase order automation, and invoice matching.",
+    color: "#f97316",
+    bg: "#1a0f08",
+    border: "#3d2410",
+    icon: (
+      <svg viewBox="0 0 40 40" className="w-8 h-8" fill="none">
+        <circle cx="20" cy="20" r="20" fill="#f97316" opacity="0.15" />
+        <path d="M14 12h2a2 2 0 002 2h4a2 2 0 002-2h2a2 2 0 012 2v14a2 2 0 01-2 2H14a2 2 0 01-2-2V14a2 2 0 012-2z" stroke="#f97316" strokeWidth="1.8" />
+      </svg>
+    ),
+  },
+  {
+    name: "Warehouse & Fulfilment",
+    category: "Warehouse team",
+    replacesLabel: "Replaces Linnworks, Cin7",
+    description: "Real-time inventory, orders, and fulfilment across every channel, in one view.",
     color: "#14b8a6",
     bg: "#0a1412",
     border: "#1a3d3a",
@@ -62,9 +81,10 @@ const integrations = [
     ),
   },
   {
-    name: "Stripe",
-    category: "Payments",
-    description: "Accept, process, and reconcile payments without friction.",
+    name: "Finance & Payments",
+    category: "Finance team",
+    replacesLabel: "Replaces Stripe + accounting sprawl",
+    description: "Automated billing, reconciliation, and finance reporting — no exports, no double entry.",
     color: "#6366f1",
     bg: "#0c0a1a",
     border: "#221a4f",
@@ -77,9 +97,10 @@ const integrations = [
     ),
   },
   {
-    name: "Shopify",
-    category: "Storefront",
-    description: "Power your online store with a seamless B2B and B2C experience.",
+    name: "Storefront",
+    category: "Sales team",
+    replacesLabel: "Replaces Shopify, WooCommerce",
+    description: "A branded B2B and B2C storefront wired directly into pricing, stock, and orders.",
     color: "#22c55e",
     bg: "#0a1410",
     border: "#1a3d22",
@@ -93,9 +114,10 @@ const integrations = [
     ),
   },
   {
-    name: "Power BI",
-    category: "Reporting",
-    description: "Turn raw data into clear dashboards and business intelligence.",
+    name: "Reporting & Insights",
+    category: "Every team",
+    replacesLabel: "Replaces Power BI, Tableau",
+    description: "AI dashboards surface revenue, utilisation, and margin the moment they change.",
     color: "#f59e0b",
     bg: "#141008",
     border: "#3d2d0a",
@@ -112,9 +134,9 @@ const integrations = [
 
 const features = [
   {
-    title: "Unified Data Layer",
+    title: "One Unified Data Layer",
     description:
-      "All your tools share a single source of truth. No duplicate entries, no sync errors — every record is consistent across CRM, PSA, and accounting.",
+      "There's nothing to sync because there's only one system. Every record — lead, quote, ticket, order, invoice — lives in one place, for every team.",
     icon: (
       <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7a3 3 0 013-3h10a3 3 0 013 3v2a3 3 0 01-3 3H7a3 3 0 01-3-3V7zM4 15a3 3 0 013-3h10a3 3 0 013 3v2a3 3 0 01-3 3H7a3 3 0 01-3-3v-2z" />
@@ -122,9 +144,9 @@ const features = [
     ),
   },
   {
-    title: "Automated Workflows",
+    title: "AI-Powered Automation",
     description:
-      "Quote approved? A job is created in PSA. Delivery confirmed? Stock updates in warehouse. Every handoff happens automatically, saving hours of manual work.",
+      "A quote turns into a job automatically. A ticket triages and routes itself. Stock reorders before you run out. AI runs the handoffs your team used to chase.",
     icon: (
       <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -134,7 +156,7 @@ const features = [
   {
     title: "Real-Time Reporting",
     description:
-      "Live Power BI dashboards surfacing revenue, utilisation, and margin at a glance. Know which clients are most profitable before your morning standup.",
+      "Built-in AI dashboards surfacing revenue, utilisation, and margin at a glance. Know which clients are most profitable before your morning standup.",
     icon: (
       <svg className="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -142,9 +164,9 @@ const features = [
     ),
   },
   {
-    title: "Scalable by Design",
+    title: "One Login. Every Team.",
     description:
-      "Start with the modules you need today. Add CRM, storefront, or procurement as your business grows — without ripping out your existing stack.",
+      "Sales, service, procurement, warehouse, and finance all work from the same platform — no per-team logins, no per-team subscriptions to reconcile.",
     icon: (
       <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -154,7 +176,7 @@ const features = [
   {
     title: "Procurement Made Easy",
     description:
-      "Raise purchase orders, track supplier deliveries, and reconcile invoices — all without switching tabs or chasing email chains.",
+      "AI watches stock levels and supplier lead times, then raises purchase orders and reconciles invoices before your warehouse team has to ask.",
     icon: (
       <svg className="w-6 h-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -176,26 +198,26 @@ const features = [
 const steps = [
   {
     number: "01",
-    title: "Connect your tools",
+    title: "Migrate your data",
     description:
-      "Plug in your existing HubSpot, HaloPSA, Stripe, and Shopify accounts. Setup takes minutes, not months.",
+      "Import contacts, tickets, inventory, and invoices from your old stack in one guided setup — no double entry.",
   },
   {
     number: "02",
-    title: "Map your workflows",
+    title: "Turn on your teams",
     description:
-      "Define the automations that matter — from quote-to-cash, ticket-to-close, or order-to-fulfilment.",
+      "Switch on the workspaces your sales, service, procurement, warehouse, and finance teams each need, with AI automations pre-wired.",
   },
   {
     number: "03",
-    title: "Go live",
+    title: "Retire your old stack",
     description:
-      "Deploy to your team, onboard clients, and watch manual tasks disappear from your backlog.",
+      "Go live, onboard your team and clients, and cancel the point-solution subscriptions you no longer need.",
   },
 ];
 
 const stats = [
-  { value: "7+", label: "Best-in-class integrations" },
+  { value: "7+", label: "Point solutions replaced" },
   { value: "60%", label: "Reduction in manual data entry" },
   { value: "3×", label: "Faster quote-to-cash cycle" },
   { value: "99.9%", label: "Uptime SLA" },
@@ -214,19 +236,20 @@ export default function Home() {
         <div className="relative mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-300 mb-8">
             <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            Built for IT service providers
+            AI-powered · Built for IT Resellers &amp; MSPs
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6">
             One platform.{" "}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Every system
+              Every team.
             </span>{" "}
-            connected.
+            Zero point solutions.
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            A5 Sync unifies CRM, CPQ, PSA, warehouse, payments, and storefront
-            into a single platform — so your team stops switching tabs and starts
-            scaling.
+            A5 Sync is the all-in-one AI-powered business management platform for
+            IT resellers, MSPs, and service providers. Sales, service, procurement,
+            warehouse, and finance run on one system — so you can retire the CRM,
+            CPQ, PSA, and reporting tools you're stitching together today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -236,10 +259,10 @@ export default function Home() {
               Book a Free Demo
             </a>
             <a
-              href="#integrations"
+              href="#platform"
               className="w-full sm:w-auto rounded-xl border border-[#1e2d45] hover:border-blue-500/50 px-8 py-4 text-base font-medium text-slate-300 hover:text-white transition-colors"
             >
-              See integrations
+              See the platform
             </a>
           </div>
         </div>
@@ -283,9 +306,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="rounded-xl bg-[#0a0e1a] border border-[#1e2d45] p-4">
-                <p className="text-xs text-slate-500 mb-3">Active Integrations</p>
+                <p className="text-xs text-slate-500 mb-3">Teams Live</p>
                 <div className="space-y-2">
-                  {["HubSpot", "HaloPSA", "Stripe", "Shopify"].map((name) => (
+                  {["Sales", "Service", "Procurement", "Warehouse", "Finance"].map((name) => (
                     <div key={name} className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-emerald-400" />
                       <span className="text-xs text-slate-300">{name}</span>
@@ -311,55 +334,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Integrations */}
-      <section id="integrations" className="py-24 px-6">
+      {/* Platform / what it replaces */}
+      <section id="platform" className="py-24 px-6">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-400 mb-3">
-              Integrations
+              The Platform
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-              Best-in-class tools,{" "}
+              Your entire tech stack.{" "}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                unified
+                One AI platform.
               </span>
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              A5 Sync connects the tools your team already loves — no rip-and-replace required.
+              A5 Sync doesn&apos;t connect to the point solutions IT resellers and
+              MSPs cobble together — it replaces them, natively, for every team.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {integrations.map((integration) => (
+            {replaces.map((item) => (
               <div
-                key={integration.name}
+                key={item.name}
                 className="group rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                 style={{
-                  background: integration.bg,
-                  borderColor: integration.border,
+                  background: item.bg,
+                  borderColor: item.border,
                 }}
               >
-                <div className="mb-4">{integration.icon}</div>
+                <div className="mb-4">{item.icon}</div>
                 <p
                   className="text-xs font-semibold uppercase tracking-wider mb-1"
-                  style={{ color: integration.color }}
+                  style={{ color: item.color }}
                 >
-                  {integration.category}
+                  {item.category}
                 </p>
-                <h3 className="text-lg font-bold text-white mb-2">{integration.name}</h3>
+                <h3 className="text-lg font-bold text-white mb-1">{item.name}</h3>
+                <p className="text-xs text-slate-500 mb-2">{item.replacesLabel}</p>
                 <p className="text-sm text-slate-400 leading-relaxed">
-                  {integration.description}
+                  {item.description}
                 </p>
               </div>
             ))}
-
-            {/* Coming soon card */}
-            <div className="rounded-2xl border border-dashed border-[#1e2d45] p-6 flex flex-col items-center justify-center text-center">
-              <div className="w-8 h-8 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center mb-3">
-                <span className="text-slate-500 text-lg">+</span>
-              </div>
-              <p className="text-sm font-medium text-slate-500">More coming soon</p>
-              <p className="text-xs text-slate-600 mt-1">Xero, ConnectWise &amp; more</p>
-            </div>
           </div>
         </div>
       </section>
@@ -372,11 +388,11 @@ export default function Home() {
               Features
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-              Everything your ops team needs
+              Everything every team needs
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              From first contact to recurring revenue — every part of your business,
-              streamlined.
+              From first contact to recurring revenue — sales, service, procurement,
+              warehouse, and finance, all streamlined by AI.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -430,11 +446,11 @@ export default function Home() {
               Pricing available on request
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-              Ready to simplify your ops?
+              Ready to retire your tool stack?
             </h2>
             <p className="text-lg text-slate-400 max-w-xl mx-auto mb-10">
-              Book a 30-minute demo and see exactly how A5 Sync fits around your existing
-              toolset — no commitment required.
+              Book a 30-minute demo and see exactly how A5 Sync replaces your CRM,
+              CPQ, PSA, and reporting tools with one AI-powered platform.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -475,7 +491,7 @@ export default function Home() {
             <span className="text-lg font-bold text-white">A5 Sync</span>
           </div>
           <p className="text-sm text-slate-500 text-center">
-            Business Management Platform for IT Service Providers
+            The All-in-One AI Business Management Platform for IT Resellers &amp; MSPs
           </p>
           <p className="text-sm text-slate-600">
             &copy; {new Date().getFullYear()} A5 Sync. All rights reserved.
